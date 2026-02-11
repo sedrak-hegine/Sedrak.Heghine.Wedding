@@ -32,11 +32,22 @@ jobs:
           node-version: 20
           cache: npm
 
+      - name: Diagnostics (tool versions)
+        run: |
+          node --version
+          npm --version
+
       - name: Install dependencies
-        run: npm install
+        run: npm install --no-audit --no-fund
 
       - name: Build
         run: npm run build
+
+      - name: Diagnostics (dist output)
+        run: |
+          test -d dist
+          echo "dist generated successfully"
+          find dist -maxdepth 2 -type f | head -n 30
 
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
