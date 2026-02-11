@@ -14,6 +14,16 @@ For this repo, set it to **GitHub Actions**:
 2. Under **Build and deployment**, set **Source = GitHub Actions**.
 3. Open **Actions** tab and run/verify **Deploy to GitHub Pages**.
 
+### Important (if deployment is queued for a long time)
+If deployment is stuck in **Queued** for many minutes:
+
+1. Open **Actions** and cancel older/duplicate runs for this workflow.
+2. Open **Settings → Actions → General** and ensure Actions are enabled.
+3. Open **Settings → Pages** and ensure source is **GitHub Actions**.
+4. Re-run the latest workflow from **Actions**.
+
+This repo workflow now cancels old in-progress runs automatically per branch, which helps prevent queue buildup.
+
 Expected public URL:
 
 - `https://sedrak-hegine.github.io/Sedrak.Heghine.Wedding/`
