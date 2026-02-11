@@ -1,63 +1,17 @@
-name: Deploy to GitHub Pages
+name: GitHub Pages Deploy
 
 on:
   push:
-    branches: ["main"]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages-${{ github.ref }}"
-  cancel-in-progress: true
+    branches: ["main"]  # Deploy when main/work is updated
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
+      - uses: actions/checkout@v4
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-
-      - name: Install dependencies
-        run: npm install --no-audit --no-fund
-
-      - name: Build project
-        run: npm run build
-
-      - name: Verify dist output
-        run: |
-          if [ ! -d dist ]; then
-            echo "dist folder not found!"
-            exit 1
-          fi
-          echo "dist generated successfully"
-          find dist -maxdepth 2 -type f | head -n 30
-
-      - name: Upload Pages Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    environment:
-      name: github-pages
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - run: npm install
+      - run: npm run deploy
