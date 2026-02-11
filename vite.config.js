@@ -1,7 +1,10 @@
 import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+// Change this to your repo name if not user page
+const repoName = '/sedrak-heghine-wedding/';
 
 export default defineConfig({
-  // Use relative asset paths so the site works whether it is served from
-  // a repository subpath or a custom domain root.
-  base: './'
+  plugins: [react()],
+  base: repoName
 });
