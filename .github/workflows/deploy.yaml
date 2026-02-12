@@ -26,9 +26,9 @@ jobs:
 
       - name: Build & Deploy  
         env:  
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-          REPO: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+          REPO: ${{ github.repository }}  
         run: |  
           npm run build  
-          git remote set-url origin "https://$$   {GITHUB_TOKEN}@github.com/   $${GITHUB_REPOSITORY}.git"  
+          git remote set-url origin "https://$$   {GITHUB_TOKEN}@github.com/   $${REPO}.git"  
           npx gh-pages -d dist -u "GitHub Actions <github-actions@github.com>" -b gh-pages  
