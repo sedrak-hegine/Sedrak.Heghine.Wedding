@@ -1,23 +1,22 @@
 {
-  "name": "sedrak-heghine-wedding",
+  "name": "wedding-site",
   "private": true,
-  "version": "1.0.0",
-  "type": "module",
+  "version": "0.0.0",
+  "homepage": "https://your-username.github.io/wedding-site",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "framer-motion": "^11.18.2",
-    "lucide-react": "^0.469.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "vite": "^5.4.11",
     "@vitejs/plugin-react": "^4.0.0",
-    "gh-pages": "^6.1.1"
+    "gh-pages": "^6.0.0",
+    "vite": "^4.4.0"
   }
 }
