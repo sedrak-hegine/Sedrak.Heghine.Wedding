@@ -1,8 +1,8 @@
 {
-  "name": "wedding-site",
+  "name": "sedrak-heghine-wedding",
   "private": true,
-  "version": "0.0.0",
-  "homepage": "https://your-username.github.io/wedding-site",
+  "version": "1.0.0",
+  "homepage": "https://sedrak-hegine.github.io/Sedrak.Heghine.Wedding/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
